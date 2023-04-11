@@ -27,14 +27,14 @@ public class PostController {
     public ResponseEntity<PostResponse> getPostById(@PathVariable long id) {
         return ResponseEntity
             .ok()
-            .body(toResponse(postService.getPostById(id)));
+            .body(toResponse(postService.getById(id)));
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<PostResponse> updatePost(@PathVariable long id, @RequestBody PostUpdateDto postUpdateDto) {
         return ResponseEntity
             .ok()
-            .body(toResponse(postService.updatePost(id, postUpdateDto)));
+            .body(toResponse(postService.update(id, postUpdateDto)));
     }
 
     public PostResponse toResponse(PostEntity postEntity) {
